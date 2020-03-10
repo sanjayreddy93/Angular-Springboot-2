@@ -11,6 +11,7 @@ import { BikesComponent } from "./components/bikes/bikes.component";
 import { ViewRegistrationComponent } from './components/view-registration/view-registration.component';
 import { NewRegistrationComponent } from './components/new-registration/new-registration.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { capitalize } from './Shared/capitalize';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     ViewRegistrationComponent,
     NewRegistrationComponent,
     WelcomeComponent,
+    capitalize
     
    
     

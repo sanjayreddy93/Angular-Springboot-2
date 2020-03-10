@@ -28,7 +28,7 @@
                 </tr>
                 <tr *ngFor="let bike of filteredList">
                     <td>
-                        {{bike.name}}
+                        {{bike.name | Capitalize}}
                     </td>
                     <td>
                         {{bike.email}}
