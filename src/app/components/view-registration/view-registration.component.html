@@ -1,0 +1,70 @@
+<div class="card" style="margin: 0 auto;width: 50%;">
+    <div class="card-header">
+        <nav class="navbar navbar-light">
+            <nav class="navbrand-bar h4"> {{pageTitle + ' : ' + this.bikeReg?.name}}</nav>
+        </nav>
+    </div>
+
+    <div class="card-body">
+        <form>
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label">Name</label>
+                <div class="col-md-8">
+                    <div class="form-control"> {{this.bikeReg?.name}} </div>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="email">Email</label>
+                <div class="col-md-8">
+                    <div class="form-control" >{{ this.bikeReg?.email }}</div>
+                </div>
+                <div class="col-md-2">
+                    <i class="fa fa-edit" style="vertical-align:middle;" 
+                    (click)='EditDetails(this.bikeReg?.email)'></i>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="phone">Phone</label>
+
+                <div class="col-md-8">
+                    <div class="form-control">{{this.bikeReg?.phone}}</div>
+                </div>
+                <div class="col-md-2">
+                    <i class="fa fa-edit"  (click)='EditDetails(this.bikeReg?.phone)'></i>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label">
+                    Bike Model
+                </label>
+                <div class="col-md-8">
+                    <div class="form-control"> {{this.bikeReg?.model}}</div>
+                </div>
+            </div>
+
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label">Serial Nu: </label>
+                <div class="col-md-8">
+                    <div class="form-control">{{this.bikeReg?.serialNumber }}</div>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label">Bike price</label>
+                <div class="col-md-8">
+                    <div class=" form-control">{{this.bikeReg?.purchasePrice}}</div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-outline-secondary" (click)='onBack()' style="width: 125px">
+            <i class="fa fa-chevron-left"></i> Back</button>
+
+
+
+    </div>
+</div>

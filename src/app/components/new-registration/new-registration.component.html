@@ -1,0 +1,139 @@
+<div class="card" style="width: 75%;margin: 0 auto;">
+  <div class="card-header">
+    <nav class="navbar">
+      <nav class="navbrand-bar h4">
+        {{pageTitle}}
+      </nav>
+    </nav>
+  </div>
+
+  <div class="card-body" >
+    <div style="text-align: center;">
+      {{validMessage}}
+      
+    </div>
+
+    <form novalidate [formGroup]="bikeForm" (ngSubmit)="submitRegistration()"  *ngIf='isVisible'>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="name">Buyer Name*</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control" id="name" placeholder="Name required" 
+          formControlName="name"
+          [ngClass]="{'is-invalid': (bikeForm.get('name').touched || bikeForm.get('name').dirty) && 
+          !bikeForm.get('name').valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="bikeForm.get('name').errors?.required">
+              Please Enter your FirstName and LastName
+            </span>
+            <span *ngIf="bikeForm.get('name').errors?.minlength">
+              The first name must be longer than 3 characters.
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="email">Email</label>
+        <div class="col-md-8">
+          <input class="form-control" id="email" type="email" placeholder="Email (required)" 
+          formControlName='email'
+            [ngClass]="{'is-invalid': (bikeForm.get('email').touched || bikeForm.get('email').dirty) && 
+            !bikeForm.get('email').valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="
+            bikeForm.get('email').errors?.required">
+              Please enter your email address.
+            </span>
+            <span *ngIf="bikeForm.get('email').errors?.email">
+              Please enter a valid email address.
+            </span>
+          </span>
+
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="phone">Phone</label>
+        <div class="col-md-8">
+          <input class="form-control" id="phone" type="number" formControlName='phone'
+            [ngClass]="{'is-invalid': (bikeForm.get('phone').touched || bikeForm.get('phone').dirty) 
+            && !bikeForm.get('phone').valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="bikeForm.get('phone').errors?.required">
+              Please enter your Phone number.
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label pt-0">Send Notifications</label>
+        <div class="col-md-8">
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" value='email' formControlName='notification'
+                 />Email
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" value='text' formControlName='notification'
+                />Text
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="model">Model*</label>
+        <div class="col-md-8">
+          <select class="form-control" id="model" formControlName="model" [ngClass]="{'is-invalid': (bikeForm.get('model').touched || bikeForm.get('model').dirty) &&
+           !bikeForm.get('model').valid }">
+            <option value="">Please select a bike</option>
+            <option *ngFor="let m of models" [value]="m">
+              {{m}}
+            </option>
+          </select>
+          <span class="invalid-feedback">
+            <span *ngIf="bikeForm.get('model').errors?.required">
+              Please select a bike model.
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label">Serial Number*</label>
+        <div class="col-md-8">
+          <input class="form-control" type="text" formControlName="serialNumber" [ngClass]="{'is-invalid': (bikeForm.get('serialNumber').touched || bikeForm.get('serialNumber').dirty) &&
+          !bikeForm.get('serialNumber').valid }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="bikeForm.get('serialNumber').errors?.minlength">
+              The serialNumber must be longer than 3 characters.
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label">Purchase Price </label>
+        <div class="col-md-8">
+          <input class="form-control" type="number" formControlName="purchasePrice" [ngClass]="{'is-invalid': (bikeForm.get('purchasePrice').touched || bikeForm.get('purchasePrice').dirty) &&
+          !bikeForm.get('purchasePrice').valid }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="bikeForm.get('purchasePrice').errors?.required">
+              The purchase price is required.
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3" type="submit" style="width:80px"
+            [title]="bikeForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+            [disabled]="!bikeForm.valid">
+            Submit
+          </button>
+        </div>
+      </div> 
+    </form>
+  </div>
+</div>

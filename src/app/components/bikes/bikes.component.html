@@ -1,0 +1,53 @@
+<div class="card" style="width: 75%;margin: 0 auto;">
+    <div class="card-header">
+        <nav class="navbar navbar-light">
+            <nav class="navbrand-bar h4"> {{pageTitle}}</nav>
+
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2"
+                       type="text"
+                       placeholder="Search character"
+                       aria-label="FilterBy"
+                       [(ngModel)]='filterBy'
+                       [ngModelOptions]="{standalone: true}" />
+                <button class="btn btn-outline-success"
+                        type="submit">Search</button>
+            </form>
+        </nav>
+    </div>
+
+    <div class="container-fluid">
+        <div class="card-body">
+            <table class="table table-inverse">
+                <tr>
+                    <th>Character Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Model</th>
+                    <th class="text-right">Bike price</th>
+                </tr>
+                <tr *ngFor="let bike of filteredList">
+                    <td>
+                        {{bike.name}}
+                    </td>
+                    <td>
+                        {{bike.email}}
+                    </td>
+                    <td>
+                        {{bike.phone}}
+                    </td>
+                    <td>
+                        {{bike.model}}
+                    </td>
+                    <td class="text-right">
+                        {{ bike.purchasePrice | currency: 'EUR'}}
+                    </td>
+                    <td> <i class="fa fa-user-edit" ></i></td>
+                    <td [routerLink]="['/bikes',bike.id]"> <i class="fa fa-eye"> </i></td>
+
+                    <td (click)='deleteEntry(bike.id)'><i class="fa fa-trash"></i></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

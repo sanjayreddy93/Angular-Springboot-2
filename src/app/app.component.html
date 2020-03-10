@@ -1,5 +1,16 @@
-<div style="text-align: center;">
-  <h1>
-    Bike Registry System
-  </h1>
+<nav class="navbar navbar-expand navbar-dark bg-primary">
+  <a class="navbar-brand h1" style="font-weight:bold;" [routerLink]= "['/welcome']">
+    {{pageTitle}}</a>
+    <ul class="navbar-nav navbar-light">
+      <li><a class="nav-link h5" [routerLink]= "['/bikes']" 
+        >Actors</a></li>
+        <li class="nav-item" >
+            <a class="nav-link h5"
+               [routerLink]="['/bikes/new']"> New Character</a>
+          </li>
+    </ul>
+</nav>
+
+<div class = "container-fluid">
+  <router-outlet></router-outlet>
 </div>
